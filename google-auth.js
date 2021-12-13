@@ -3,13 +3,13 @@ const passport=require('passport')
 const User=require('./models/user');
 var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
 
-const GOOGLE_CLIENT_ID='288350490413-urhug0k9lo888esg0hgufuh6kseit3dc.apps.googleusercontent.com';
-const GOOGLE_CLIENT_SECRET='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';
+const googleId= process.env.GOOGLE_CLIENT_ID;
+const googleSecret=process.env.GOOGLE_CLIENT_SECRET;
 
 module.exports=(passport)=>{
   passport.use(new GoogleStrategy({
-    clientID:     GOOGLE_CLIENT_ID,
-    clientSecret: GOOGLE_CLIENT_SECRET,
+    clientID:     googleId,
+    clientSecret: googleSecret,
     callbackURL: "http://localhost:3000/google/callback",
     passReqToCallback   : true
   },

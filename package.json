@@ -22,11 +22,11 @@
     "joi": "^17.4.2",
     "method-override": "^3.0.0",
     "mongoose": "^5.13.7",
-    "os": "^0.1.2",
     "passport": "^0.4.1",
     "passport-google-oauth2": "^0.2.0",
     "path": "^0.12.7",
     "qrcode": "^1.4.4",
-    "sanitize-html": "^2.6.1"
+    "sanitize-html": "^2.6.1",
+    "userhome": "^1.0.0"
   }
 }

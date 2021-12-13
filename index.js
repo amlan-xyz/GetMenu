@@ -9,11 +9,11 @@ const mongoose=require('mongoose');
 const ejsMate=require('ejs-mate');
 const {isLoggedIn}=require('./middleware');
 const methodOverride=require('method-override');
-const os=require('os');
 const Joi=require('joi');
 const QRCode = require('qrcode');
 const session =require('express-session');
 const MongoDBStore=require('connect-mongo');
+const userhome=require('userhome');
 // mongo sanitize
 
 const mongoSanitize=require('express-mongo-sanitize');
@@ -187,14 +187,13 @@ app.get('/dashboard/:id',isLoggedIn,catchAsync(async(req,res)=>{
 
 app.get('/:id/download/qrcode',isLoggedIn,catchAsync(async(req,res)=>{
   const id=req.params.id;
-  QRCode.toFile(`${os.homedir()}/qrcode.png`, `https://fathomless-garden-77003.herokuapp.com/menu/${id}`, {
+  QRCode.toFile(`${userhome()}/qrcode.png`, `https://fathomless-garden-77003.herokuapp.com/menu/${id}`, {
     color: {
       dark: '#FFFF', 
       light: '#000' 
     }
   }, function (err) {
     if (err) throw err
-    console.log(`${os.homedir()}`);
     return res.redirect(`/dashboard/${id}`);
   })
 }))

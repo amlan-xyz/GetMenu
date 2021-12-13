@@ -1,7 +1,7 @@
 class ExpressError extends Error{
     constructor(message,statusCode){
         super();
-        this.message=message;
+        this.message="Page Not Found";
         this.statusCode=statusCode;
     }
 }

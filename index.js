@@ -27,8 +27,8 @@ const {userSchema,sectionSchema,itemSchema}=require('./schema');
 const validateUser=(req,res,next)=>{
   const {error}=userSchema.validate(req.body);
   if(error){
-    const msg=error.details.map(el=>el.message).join(',')
-    throw new ExpressError(msg,404);
+    // const msg=error.details.map(el=>el.message).join(',')
+    throw new ExpressError("Page not found",404);
   }else{
     next();
   }
@@ -38,8 +38,8 @@ const validateUser=(req,res,next)=>{
 const validateCourses=(req,res,next)=>{
   const {error}=sectionSchema.validate(req.body);
   if(error){
-    const msg=error.details.map(el=>el.message).join(',')
-    throw new ExpressError(msg,404);
+    // const msg=error.details.map(el=>el.message).join(',')
+    throw new ExpressError("Page not found",404);
   }else{
     next();
   }
@@ -48,8 +48,8 @@ const validateCourses=(req,res,next)=>{
 const validateItems=(req,res,next)=>{
   const {error}=itemSchema.validate(req.body);
   if(error){
-    const msg=error.details.map(el=>el.message).join(',')
-    throw new ExpressError(msg,404);
+    // const msg=error.details.map(el=>el.message).join(',')
+    throw new ExpressError("Page not found",404);
   }else{
     next();
   }

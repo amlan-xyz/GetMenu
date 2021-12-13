@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Menu</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+<!-- Boxicons CSS -->
+<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
+<!-- font awesome -->
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+
+
+    <!-- header -->
+    <header class="w-header" id="header">
+        <nav class="nav w-container">
+            <a href="/" class="nav__logo">Get Menu</a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="/#home" class="nav__link active-link">Home</a></li>
+                    <li class="nav__item"><a href="/#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="/#perks" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="/#contact" class="nav__link">Contact Us</a></li>
+                    <% if(!currentUser){ %>
+                    <li class="nav__item">
+                        <a href="/login" class="nav__link">Sign In/Login</a>
+                    </li>      
+                    <%}else{%>
+                        <li class="nav__item">
+                            <a class="nav__link" href='/dashboard/<%=currentUser.id%>'>Dashboard</a>
+                        </li>   
+                        <li class="nav__item">
+                            <a href="/logout" class="nav__link">Logout</a>
+                        </li>
+                    <%}%> 
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="w-main">
+        <%-body%>
+
+
+                              <!--========== FOOTER ==========-->
+                              <footer class="footer section ">
+                                <div class="w-container">
+                                    <div class=" footer__container w-grid">
+                                        <div class="footer__content">
+                                            <a href="#" class="footer__logo">Get Menu</a>
+                                            <!-- <span class="footer__description">Socials</span> -->
+                                            <!-- <div>
+                                                <a href="#" class="footer__social"><i class='bx bxl-facebook'></i></a>
+                                                <a href="#" class="footer__social"><i class='bx bxl-instagram'></i></a>
+                                                <a href="#" class="footer__social"><i class='bx bxl-twitter'></i></a>
+                                            </div> -->
+                                        </div>
+                                                
+                                        <div class="footer__content">
+                                            <h3 class="footer__title">Information</h3>
+                                            <ul>
+                                                <li><a href="/#about" class="footer__link">About us</a></li>
+                                                <li><a href="/#contact" class="footer__link">Contact Us</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="footer__content">
+                                            <h3 class="footer__title">Web Developer</h3>
+                                            <ul>
+                                                <li>Amlanjyoti Saikia</li>
+                                                <li> <a href="tel:9085173686" class="footer__social"><i class='bx bx-phone-call'></i></a> 
+                                                  <a href="mailto:heyamlan19@gmail.com" class="footer__social"><i class='bx bx-mail-send'></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                                
+                                    <p class="footer__copy">&#169; Get Menu. All right reserved</p>
+                                </div>
+                                              
+                              </footer>
+    </main>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
+
+    

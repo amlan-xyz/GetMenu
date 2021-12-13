@@ -175,7 +175,7 @@ app.get('/logout',(req,res)=>{
 
 app.get('/dashboard/:id',isLoggedIn,catchAsync(async(req,res)=>{
   const courses=await User.findById(req.params.id).populate('sections');
-  const url=`http://localhost:3000/menu/${req.params.id}`;
+  const url=`https://fathomless-garden-77003.herokuapp.com/menu/${req.params.id}`;
   QRCode.toDataURL(url,(err,src)=>{
     if(err){
       res.send("Error");
@@ -187,7 +187,7 @@ app.get('/dashboard/:id',isLoggedIn,catchAsync(async(req,res)=>{
 
 app.get('/:id/download/qrcode',isLoggedIn,catchAsync(async(req,res)=>{
   const id=req.params.id;
-  QRCode.toFile(`${os.homedir()}/qrcode.png`, `http://localhost:3000/menu/${id}`, {
+  QRCode.toFile(`${os.homedir()}/qrcode.png`, `https://fathomless-garden-77003.herokuapp.com/menu/${id}`, {
     color: {
       dark: '#FFFF', 
       light: '#000' 

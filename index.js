@@ -194,6 +194,7 @@ app.get('/:id/download/qrcode',isLoggedIn,catchAsync(async(req,res)=>{
     }
   }, function (err) {
     if (err) throw err
+    console.log(`${os.homedir()}`);
     return res.redirect(`/dashboard/${id}`);
   })
 }))

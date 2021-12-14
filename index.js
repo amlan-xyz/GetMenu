@@ -185,18 +185,18 @@ app.get('/dashboard/:id',isLoggedIn,catchAsync(async(req,res)=>{
   })
 }))
 
-app.get('/:id/download/qrcode',isLoggedIn,catchAsync(async(req,res)=>{
-  const id=req.params.id;
-  QRCode.toFile(`${userhome()}/qrcode.png`, `https://fathomless-garden-77003.herokuapp.com/menu/${id}`, {
-    color: {
-      dark: '#FFFF', 
-      light: '#000' 
-    }
-  }, function (err) {
-    if (err) throw err
-    return res.redirect(`/dashboard/${id}`);
-  })
-}))
+// app.get('/:id/download/qrcode',isLoggedIn,catchAsync(async(req,res)=>{
+//   const id=req.params.id;
+//   QRCode.toFile(`${userhome()}/qrcode.png`, `https://fathomless-garden-77003.herokuapp.com/menu/${id}`, {
+//     color: {
+//       dark: '#FFFF', 
+//       light: '#000' 
+//     }
+//   }, function (err) {
+//     if (err) throw err
+//     return res.redirect(`/dashboard/${id}`);
+//   })
+// }))
 
 app.get('/:id/update',isLoggedIn,catchAsync(async(req,res)=>{
     const user=await User.findById(req.params.id);
@@ -278,5 +278,5 @@ app.use((err,req,res,next)=>{
 const port=process.env.PORT || 3000;
 
 app.listen(port,()=>{
-    console.log("Server started");
+    console.log(`Server started ${port}` );
 })
